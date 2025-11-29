@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DigitalPremium - Cursos de Inglés de Alta Calidad</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset y estilos base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+        }
+        
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #7c3aed;
+            --accent: #f59e0b;
+            --text: #1f2937;
+            --text-light: #6b7280;
+            --bg: #ffffff;
+            --bg-light: #f8fafc;
+            --border: #e5e7eb;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            font-weight: 400;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: var(--bg);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .logo i {
+            color: var(--secondary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav ul li a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--accent);
+            color: var(--text);
+            padding: 16px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        
+        .btn:hover {
+            background: #eab308;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        /* Sección del curso */
+        .course {
+            padding: 100px 0;
+            background: var(--bg-light);
+        }
+        
+        .course-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .course-image {
+            height: 400px;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: var(--shadow-lg);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+        }
+        
+        .course-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--accent);
+            color: var(--text);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        .course-info h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+        
+        .course-info p {
+            color: var(--text-light);
+            margin-bottom: 30px;
+            font-size: 18px;
+        }
+        
+        .benefits-list {
+            margin-bottom: 30px;
+        }
+        
+        .benefits-list li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+        
+        .benefits-list li i {
+            color: var(--primary);
+        }
+        
+        .pricing {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+        
+        .price-old {
+            font-size: 24px;
+            color: var(--text-light);
+            text-decoration: line-through;
+            margin-bottom: 8px;
+        }
+        
+        .price-new {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .price-save {
+            background: #dcfce7;
+            color: #166534;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        
+        /* Testimonios */
+        .testimonials {
+            padding: 100px 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-header h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text);
+        }
+        
+        .section-header p {
+            font-size: 18px;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .testimonial-card {
+            background: var(--bg);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            font-size: 80px;
+            color: var(--primary);
+            opacity: 0.2;
+            font-family: Georgia, serif;
+        }
+        
+        .testimonial-content {
+            margin-bottom: 30px;
+            color: var(--text);
+            font-size: 18px;
+            line-height: 1.8;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 24px;
+        }
+        
+        .author-info h4 {
+            font-weight: 600;
+            margin-bottom: 4px;
+            font-size: 18px;
+        }
+        
+        .author-info p {
+            color: var(--text-light);
+        }
+        
+        /* Sección de beneficios */
+        .benefits {
+            padding: 100px 0;
+            background: var(--bg-light);
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .benefit-card {
+            text-align: center;
+            padding: 40px 20px;
+        }
+        
+        .benefit-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            color: white;
+            font-size: 32px;
+        }
+        
+        .benefit-card h3 {
+            font-size: 22px;
+            margin-bottom: 16px;
+            color: var(--text);
+        }
+        
+        .benefit-card p {
+            color: var(--text-light);
+        }
+        
+        /* Sección de módulos */
+        .modules {
+            padding: 100px 0;
+        }
+        
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .module-card {
+            background: var(--bg);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--primary);
+        }
+        
+        .module-number {
+            font-size: 14px;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .module-card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--text);
+        }
+        
+        .module-card ul {
+            list-style: none;
+        }
+        
+        .module-card ul li {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+            color: var(--text-light);
+        }
+        
+        .module-card ul li i {
+            color: var(--primary);
+            font-size: 12px;
+        }
+        
+        /* CTA Section */
+        .cta {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .cta h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .cta p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn-white {
+            background: white;
+            color: var(--primary);
+        }
+        
+        .btn-white:hover {
+            background: #f3f4f6;
+        }
+        
+        /* Garantía Section */
+        .guarantee {
+            padding: 80px 0;
+            background: var(--bg-light);
+            text-align: center;
+        }
+        
+        .guarantee-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .guarantee-icon {
+            font-size: 60px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .guarantee h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+        
+        .guarantee p {
+            color: var(--text-light);
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--text);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-column ul li a {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #374151;
+            color: #9ca3af;
+            font-size: 14px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                gap: 20px;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .course-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .course-image {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-gem"></i>
+                    <span>DigitalPremium</span>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#curso">El Curso</a></li>
+                        <li><a href="#modulos">Módulos</a></li>
+                        <li><a href="#beneficios">Beneficios</a></li>
+                        <li><a href="#testimonio">Testimonio</a></li>
+                        <li><a href="#precio">Precio</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Domina el Inglés con DigitalPremium</h1>
+                <p>El método más efectivo para aprender inglés de forma natural y entretenida</p>
+                <a href="#precio" class="btn">
+                    <i class="fas fa-arrow-down"></i> Ver Oferta Especial
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección del Curso -->
+    <section class="course" id="curso">
+        <div class="container">
+            <div class="course-content">
+                <div class="course-image">
+                    <i class="fas fa-language"></i>
+                    <div class="course-badge">MÁS VENDIDO</div>
+                </div>
+                <div class="course-info">
+                    <h2>MasterClass INGLÉS FÁCIL</h2>
+                    <p>¿Quieres aprender a hablar inglés y comunicarte cómodamente sin sentirte avergonzado? Domina las bases del inglés y exprésate correctamente en poco tiempo.</p>
+                    
+                    <h3>¿Qué vas a lograr?</h3>
+                    <ul class="benefits-list">
+                        <li><i class="fas fa-check-circle"></i> Manejar correctamente las estructuras del idioma</li>
+                        <li><i class="fas fa-check-circle"></i> Iniciar y mantener conversaciones con seguridad</li>
+                        <li><i class="fas fa-check-circle"></i> Pronunciar adecuadamente y enriquecer tu vocabulario</li>
+                        <li><i class="fas fa-check-circle"></i> Fortalecer tus habilidades de escucha</li>
+                        <li><i class="fas fa-check-circle"></i> Ganar confianza y sentirte cómodo con el idioma</li>
+                    </ul>
+                    
+                    <div class="pricing" id="precio">
+                        <div class="price-old">$3,000 MXN</div>
+                        <div class="price-new">$1,121.72 MXN</div>
+                        <div class="price-save">¡Ahorras $1,878.28 MXN!</div>
+                        <a href="https://go.hotmart.com/M103189078G?ap=d46c" class="btn">
+                            <i class="fas fa-shopping-cart"></i> Obtener Ahora
+                        </a>
+                        <p style="margin-top: 15px; font-size: 14px; color: var(--text-light);">Pago único • Acceso de por vida</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Módulos -->
+    <section class="modules" id="modulos">
+        <div class="container">
+            <div class="section-header">
+                <h2>Contenido del Curso</h2>
+                <p>Estructura completa diseñada para tu aprendizaje progresivo</p>
+            </div>
+            <div class="modules-grid">
+                <div class="module-card">
+                    <div class="module-number">MÓDULO 1</div>
+                    <h3>Fundamentos del Inglés</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Estructuras básicas</li>
+                        <li><i class="fas fa-check"></i> Pronunciación esencial</li>
+                        <li><i class="fas fa-check"></i> Vocabulario fundamental</li>
+                        <li><i class="fas fa-check"></i> Saludos y presentaciones</li>
+                    </ul>
+                </div>
+                
+                <div class="module-card">
+                    <div class="module-number">MÓDULO 2</div>
+                    <h3>Conversación Diaria</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Situaciones cotidianas</li>
+                        <li><i class="fas fa-check"></i> Expresiones comunes</li>
+                        <li><i class="fas fa-check"></i> Comprensión auditiva</li>
+                        <li><i class="fas fa-check"></i> Fluidez en diálogos</li>
+                    </ul>
+                </div>
+                
+                <div class="module-card">
+                    <div class="module-number">MÓDULO 3</div>
+                    <h3>Inglés Avanzado</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Tiempos verbales complejos</li>
+                        <li><i class="fas fa-check"></i> Expresiones idiomáticas</li>
+                        <li><i class="fas fa-check"></i> Conversaciones profesionales</li>
+                        <li><i class="fas fa-check"></i> Lectura y escritura</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonio -->
+    <section class="testimonials" id="testimonio">
+        <div class="container">
+            <div class="section-header">
+                <h2>Opinión de Nuestros Estudiantes</h2>
+                <p>Descubre la experiencia real de quienes ya transformaron su inglés</p>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    Me encantó el programa! La profesora usa muchos recursos diferentes entonces las lecciones son muy entretenidas. Lo recomiendo mucho. Aprendí bastante!
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">M</div>
+                    <div class="author-info">
+                        <h4>María González</h4>
+                        <p>Estudiante de DigitalPremium</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de beneficios -->
+    <section class="benefits" id="beneficios">
+        <div class="container">
+            <div class="section-header">
+                <h2>Beneficios Exclusivos</h2>
+                <p>Todo lo que obtienes con DigitalPremium</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-play-circle"></i>
+                    </div>
+                    <h3>Lecciones Entretenidas</h3>
+                    <p>Método dinámico con recursos variados que mantienen tu interés y motivación.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3>Certificado Oficial</h3>
+                    <p>Certificado avalado por Hotmart y Seminarios Online al completar el curso.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-infinity"></i>
+                    </div>
+                    <h3>Acceso Permanente</h3>
+                    <p>Acceso de por vida a todas las lecciones y futuras actualizaciones del curso.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Garantía Section -->
+    <section class="guarantee">
+        <div class="container">
+            <div class="guarantee-content">
+                <div class="guarantee-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h2>Garantía de Satisfacción</h2>
+                <p>Estamos tan seguros de que amarás el curso que te ofrecemos garantía de calidad. Si no quedas satisfecho con el contenido, contamos con políticas que protegen tu inversión.</p>
+                <a href="https://go.hotmart.com/M103189078G?ap=d46c" class="btn">
+                    <i class="fas fa-lock"></i> Comprar con Confianza
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Comienza Tu Transformación Hoy</h2>
+            <p>Únete a miles de estudiantes que ya dominan el inglés con nuestro método comprobado</p>
+            <a href="https://go.hotmart.com/M103189078G?ap=d46c" class="btn btn-white">
+                <i class="fas fa-rocket"></i> Comenzar Ahora
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>DigitalPremium</h3>
+                    <p>Tu camino hacia la fluidez en inglés con un método probado y entretenido.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Enlaces</h3>
+                    <ul>
+                        <li><a href="#curso">El Curso</a></li>
+                        <li><a href="#modulos">Módulos</a></li>
+                        <li><a href="#beneficios">Beneficios</a></li>
+                        <li><a href="#testimonio">Testimonio</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Términos de Servicio</a></li>
+                        <li><a href="#">Política de Privacidad</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 DigitalPremium. Todos los derechos reservados.</p>
+                <p style="margin-top: 10px; font-size: 12px;">*Este producto no garantiza la obtención de resultados. Cualquier referencia al desempeño no debe interpretarse como garantía.</p>
+                <p style="margin-top: 5px; font-size: 12px;">Este sitio contiene enlaces de afiliados. Como afiliado, podemos recibir una comisión por compras realizadas.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
