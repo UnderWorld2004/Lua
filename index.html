@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DigitalPremium - Cursos Especializados</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         /* Reset y estilos base */
         * {
@@ -16,16 +17,23 @@
         
         :root {
             --primary: #2563eb;
-            --primary-dark: #1d4ed8;
+            --primary-light: #3b82f6;
+            --primary-dark: #1e40af;
             --secondary: #7c3aed;
             --accent: #f59e0b;
+            --accent-light: #fbbf24;
             --text: #1f2937;
             --text-light: #6b7280;
+            --text-lighter: #9ca3af;
             --bg: #ffffff;
             --bg-light: #f8fafc;
+            --bg-lighter: #f9fafb;
             --border: #e5e7eb;
-            --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-            --shadow-lg: 0 10px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --border-light: #f3f4f6;
+            --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
         
         body {
@@ -44,19 +52,20 @@
         
         /* Header Minimalista */
         header {
-            background: var(--bg);
-            border-bottom: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.98);
+            border-bottom: 1px solid var(--border-light);
             position: sticky;
             top: 0;
             z-index: 100;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(12px);
+            transition: all 0.3s ease;
         }
         
         .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
+            padding: 18px 0;
         }
         
         .logo {
@@ -65,17 +74,20 @@
             color: var(--text);
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
+            letter-spacing: -0.025em;
+            text-decoration: none;
         }
         
         .logo i {
             color: var(--primary);
+            font-size: 24px;
         }
         
         nav ul {
             display: flex;
             list-style: none;
-            gap: 32px;
+            gap: 36px;
         }
         
         nav ul li a {
@@ -85,17 +97,33 @@
             font-size: 15px;
             transition: all 0.3s ease;
             padding: 8px 0;
+            position: relative;
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
         }
         
         nav ul li a:hover {
             color: var(--primary);
         }
         
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
         /* Hero Section Minimalista */
         .hero {
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             color: white;
-            padding: 120px 0 100px;
+            padding: 140px 0 100px;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -108,7 +136,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='40' cy='40' r='3'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
         }
         
         .hero-content {
@@ -119,11 +147,11 @@
         }
         
         .hero h1 {
-            font-size: 48px;
+            font-size: 52px;
             font-weight: 700;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             line-height: 1.1;
-            letter-spacing: -0.02em;
+            letter-spacing: -0.025em;
         }
         
         .hero p {
@@ -131,6 +159,7 @@
             margin-bottom: 40px;
             opacity: 0.9;
             font-weight: 400;
+            line-height: 1.6;
         }
         
         .btn {
@@ -139,7 +168,7 @@
             gap: 10px;
             background: var(--accent);
             color: var(--text);
-            padding: 16px 36px;
+            padding: 16px 32px;
             border-radius: 10px;
             text-decoration: none;
             font-weight: 600;
@@ -148,11 +177,12 @@
             cursor: pointer;
             font-size: 16px;
             letter-spacing: -0.01em;
+            box-shadow: var(--shadow-md);
         }
         
         .btn:hover {
-            background: #eab308;
-            transform: translateY(-2px);
+            background: var(--accent-light);
+            transform: translateY(-3px);
             box-shadow: var(--shadow-lg);
         }
 
@@ -165,7 +195,21 @@
         
         .btn-secondary:hover {
             background: rgba(255, 255, 255, 0.25);
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            box-shadow: none;
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
         }
         
         /* Sección de productos minimalista */
@@ -176,15 +220,15 @@
         
         .section-header {
             text-align: center;
-            margin-bottom: 64px;
+            margin-bottom: 70px;
         }
         
         .section-header h2 {
-            font-size: 36px;
+            font-size: 40px;
             font-weight: 700;
             margin-bottom: 16px;
             color: var(--text);
-            letter-spacing: -0.02em;
+            letter-spacing: -0.025em;
         }
         
         .section-header p {
@@ -197,7 +241,7 @@
         
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
             gap: 32px;
         }
         
@@ -206,13 +250,16 @@
             border-radius: 16px;
             overflow: hidden;
             box-shadow: var(--shadow);
-            transition: all 0.3s ease;
-            border: 1px solid var(--border);
+            transition: all 0.4s ease;
+            border: 1px solid var(--border-light);
+            display: flex;
+            flex-direction: column;
+            position: relative;
         }
         
         .product-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
         }
         
         .product-image {
@@ -225,33 +272,38 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.3s ease;
+            transition: transform 0.6s ease;
         }
         
         .product-card:hover .product-image img {
-            transform: scale(1.05);
+            transform: scale(1.08);
         }
         
         .product-badge {
             position: absolute;
-            top: 20px;
-            right: 20px;
+            top: 16px;
+            right: 16px;
             background: var(--accent);
             color: var(--text);
-            padding: 6px 14px;
+            padding: 8px 16px;
             border-radius: 20px;
             font-size: 13px;
-            font-weight: 600;
+            font-weight: 700;
+            letter-spacing: 0.025em;
+            box-shadow: var(--shadow-md);
         }
         
         .product-content {
             padding: 32px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
         
         .product-content h3 {
-            font-size: 22px;
+            font-size: 24px;
             font-weight: 700;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
             color: var(--text);
             letter-spacing: -0.01em;
         }
@@ -260,6 +312,7 @@
             color: var(--text-light);
             margin-bottom: 20px;
             line-height: 1.6;
+            flex-grow: 1;
         }
         
         .benefits-list {
@@ -270,7 +323,7 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             color: var(--text);
             font-size: 15px;
         }
@@ -281,12 +334,12 @@
         }
         
         .pricing {
-            background: var(--bg-light);
+            background: var(--bg-lighter);
             padding: 24px;
             border-radius: 12px;
             text-align: center;
-            margin-top: 24px;
-            border: 1px solid var(--border);
+            margin-top: auto;
+            border: 1px solid var(--border-light);
         }
         
         .price-old {
@@ -297,7 +350,7 @@
         }
         
         .price-new {
-            font-size: 32px;
+            font-size: 36px;
             font-weight: 700;
             color: var(--primary);
             margin-bottom: 16px;
@@ -307,18 +360,168 @@
         .price-save {
             background: #dcfce7;
             color: #166534;
-            padding: 6px 12px;
+            padding: 8px 16px;
             border-radius: 20px;
             font-weight: 600;
             display: inline-block;
             margin-bottom: 16px;
-            font-size: 13px;
+            font-size: 14px;
+        }
+        
+        .product-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 16px;
+        }
+        
+        .product-actions .btn {
+            flex: 1;
+            justify-content: center;
+            padding: 14px 20px;
+        }
+        
+        /* Página de producto detallada */
+        .product-detail {
+            padding: 80px 0;
+            background: var(--bg-light);
+        }
+        
+        .product-detail-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+        
+        .product-detail-image {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .product-detail-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .product-detail-info h1 {
+            font-size: 46px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text);
+            letter-spacing: -0.025em;
+            line-height: 1.1;
+        }
+        
+        .product-detail-info .description {
+            font-size: 18px;
+            color: var(--text-light);
+            margin-bottom: 32px;
+            line-height: 1.7;
+        }
+        
+        .product-features {
+            margin-bottom: 40px;
+        }
+        
+        .product-features h2 {
+            font-size: 26px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+        
+        .product-features ul {
+            list-style: none;
+        }
+        
+        .product-features li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 14px;
+            font-size: 16px;
+            color: var(--text);
+            padding: 8px 0;
+        }
+        
+        .product-features li i {
+            color: var(--primary);
+            font-size: 16px;
+        }
+        
+        .product-detail-pricing {
+            background: var(--bg);
+            padding: 32px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-light);
+            text-align: center;
+        }
+        
+        .product-detail-pricing .price-old {
+            font-size: 18px;
+        }
+        
+        .product-detail-pricing .price-new {
+            font-size: 46px;
+            margin: 10px 0;
+        }
+        
+        .product-detail-pricing .price-save {
+            font-size: 16px;
+            padding: 8px 16px;
+            margin-bottom: 24px;
+        }
+        
+        .btn-giant {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: var(--accent);
+            color: var(--text);
+            padding: 24px 40px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 22px;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-bottom: 16px;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .btn-giant:hover {
+            background: var(--accent-light);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            padding: 10px 16px;
+            border-radius: 8px;
+            background: rgba(37, 99, 235, 0.05);
+        }
+        
+        .back-link:hover {
+            gap: 12px;
+            background: rgba(37, 99, 235, 0.1);
         }
         
         /* Testimonios minimalistas */
         .testimonials {
             padding: 100px 0;
-            background: var(--bg-light);
+            background: var(--bg-lighter);
         }
         
         .testimonial-grid {
@@ -333,7 +536,13 @@
             border-radius: 16px;
             box-shadow: var(--shadow);
             position: relative;
-            border: 1px solid var(--border);
+            border: 1px solid var(--border-light);
+            transition: transform 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
         }
         
         .testimonial-card::before {
@@ -403,15 +612,15 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='40' cy='40' r='3'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
         }
         
         .cta h2 {
-            font-size: 36px;
+            font-size: 40px;
             margin-bottom: 20px;
             position: relative;
             z-index: 1;
-            letter-spacing: -0.02em;
+            letter-spacing: -0.025em;
         }
         
         .cta p {
@@ -511,208 +720,483 @@
                 height: 200px;
             }
             
+            .product-detail-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
             .container {
                 padding: 0 20px;
             }
         }
+        
+        /* Ocultar páginas detalladas inicialmente */
+        .product-detail-page {
+            display: none;
+        }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <i class="fas fa-gem"></i>
-                    <span>DigitalPremium</span>
+    <!-- Página Principal -->
+    <div id="main-page">
+        <!-- Header -->
+        <header>
+            <div class="container">
+                <div class="header-content">
+                    <a href="#" class="logo">
+                        <i class="fas fa-gem"></i>
+                        <span>DigitalPremium</span>
+                    </a>
+                    <nav>
+                        <ul>
+                            <li><a href="#productos">Cursos</a></li>
+                            <li><a href="#testimonios">Testimonios</a></li>
+                        </ul>
+                    </nav>
                 </div>
-                <nav>
-                    <ul>
-                        <li><a href="#productos">Cursos</a></li>
-                        <li><a href="#testimonios">Testimonios</a></li>
-                    </ul>
-                </nav>
             </div>
-        </div>
-    </header>
+        </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Cursos Especializados</h1>
-                <p>Aprende habilidades demandadas con cursos enfocados en lo esencial</p>
-                <a href="#productos" class="btn">
-                    <i class="fas fa-arrow-down"></i> Ver Cursos
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Cursos Especializados</h1>
+                    <p>Aprende habilidades demandadas con cursos enfocados en lo esencial</p>
+                    <a href="#productos" class="btn">
+                        <i class="fas fa-arrow-down"></i> Ver Cursos
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Productos -->
+        <section class="products" id="productos">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Cursos Destacados</h2>
+                    <p>Selección de programas especializados para tu crecimiento</p>
+                </div>
+                <div class="products-grid">
+                    <!-- Curso de Inglés -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Curso de Inglés DigitalPremium">
+                            <div class="product-badge">POPULAR</div>
+                        </div>
+                        <div class="product-content">
+                            <h3>Inglés Fácil</h3>
+                            <p>Domina el inglés conversacional y comunícate con confianza en poco tiempo.</p>
+                            
+                            <h4>Lo que lograrás</h4>
+                            <ul class="benefits-list">
+                                <li><i class="fas fa-check"></i> Estructuras gramaticales esenciales</li>
+                                <li><i class="fas fa-check"></i> Conversaciones fluidas en inglés</li>
+                                <li><i class="fas fa-check"></i> Pronunciación correcta</li>
+                                <li><i class="fas fa-check"></i> Comprensión auditiva avanzada</li>
+                            </ul>
+                            
+                            <div class="pricing">
+                                <div class="price-old">$3,000 MXN</div>
+                                <div class="price-new">$1,121 MXN</div>
+                                <div class="price-save">Ahorras $1,879 MXN</div>
+                                <div class="product-actions">
+                                    <a href="https://go.hotmart.com/M103189078G?ap=d46c" class="btn">
+                                        <i class="fas fa-shopping-cart"></i> Comprar
+                                    </a>
+                                    <a href="#" class="btn btn-outline" onclick="showProductDetail('ingles')">
+                                        <i class="fas fa-eye"></i> Ver Más
+                                    </a>
+                                </div>
+                                <p style="margin-top: 10px; font-size: 12px; color: var(--text-light);">Pago único • Acceso permanente</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Curso de Photoshop -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://visualbitstudio.com/wp-content/uploads/2021/06/Img-2-s.jpg" alt="Curso Photoshop para Estampadores">
+                            <div class="product-badge">NUEVO</div>
+                        </div>
+                        <div class="product-content">
+                            <h3>Photoshop para Estampadores</h3>
+                            <p>Aprende diseño gráfico especializado para personalización y estampado.</p>
+                            
+                            <h4>Lo que lograrás</h4>
+                            <ul class="benefits-list">
+                                <li><i class="fas fa-check"></i> Diseños profesionales para estampado</li>
+                                <li><i class="fas fa-check"></i> Herramientas esenciales de Photoshop</li>
+                                <li><i class="fas fa-check"></i> Trabajo con capas y selecciones</li>
+                                <li><i class="fas fa-check"></i> Preparación de archivos para impresión</li>
+                            </ul>
+                            
+                            <div class="pricing">
+                                <div class="price-old">$2,500 MXN</div>
+                                <div class="price-new">$785 MXN</div>
+                                <div class="price-save">Ahorras $1,715 MXN</div>
+                                <div class="product-actions">
+                                    <a href="https://go.hotmart.com/V103200284I?ap=3a33" class="btn">
+                                        <i class="fas fa-shopping-cart"></i> Comprar
+                                    </a>
+                                    <a href="#" class="btn btn-outline" onclick="showProductDetail('photoshop')">
+                                        <i class="fas fa-eye"></i> Ver Más
+                                    </a>
+                                </div>
+                                <p style="margin-top: 10px; font-size: 12px; color: var(--text-light);">Pago único • Acceso permanente</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Combo Ideal + 230 Recetas de Postre -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1364&q=80" alt="Combo Ideal + 230 Recetas de Postre">
+                            <div class="product-badge">OFERTA</div>
+                        </div>
+                        <div class="product-content">
+                            <h3>Combo Ideal + 230 Recetas de Postre</h3>
+                            <p>Descubre el combo perfecto para aprender repostería con más de 230 recetas para toda ocasión.</p>
+                            
+                            <h4>Lo que incluye</h4>
+                            <ul class="benefits-list">
+                                <li><i class="fas fa-check"></i> 230 recetas de postres variados</li>
+                                <li><i class="fas fa-check"></i> Técnicas profesionales de repostería</li>
+                                <li><i class="fas fa-check"></i> Recetas para toda ocasión</li>
+                                <li><i class="fas fa-check"></i> Ingredientes y utensilios esenciales</li>
+                            </ul>
+                            
+                            <div class="pricing">
+                                <div class="price-old">$4,500 MXN</div>
+                                <div class="price-new">$336.40 MXN</div>
+                                <div class="price-save">Ahorras $4,163.60 MXN</div>
+                                <div class="product-actions">
+                                    <a href="https://go.hotmart.com/F103210913F?ap=9022" class="btn">
+                                        <i class="fas fa-shopping-cart"></i> Comprar
+                                    </a>
+                                    <a href="#" class="btn btn-outline" onclick="showProductDetail('recetas')">
+                                        <i class="fas fa-eye"></i> Ver Más
+                                    </a>
+                                </div>
+                                <p style="margin-top: 10px; font-size: 12px; color: var(--text-light);">Pago único • Acceso permanente</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonios -->
+        <section class="testimonials" id="testimonios">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Experiencias Reales</h2>
+                    <p>Lo que dicen nuestros estudiantes</p>
+                </div>
+                <div class="testimonial-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            El curso de inglés superó mis expectativas. En solo 2 meses ya puedo mantener conversaciones fluidas. Método muy práctico.
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">M</div>
+                            <div class="author-info">
+                                <h4>María González</h4>
+                                <p>Estudiante de Inglés</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            Transformó mi negocio de estampado. Ahora creo mis propios diseños y atiendo pedidos personalizados sin depender de diseñadores.
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">C</div>
+                            <div class="author-info">
+                                <h4>Carlos Mendoza</h4>
+                                <p>Emprendedor</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            Las recetas de postres son increíbles. He sorprendido a mi familia con deliciosos postres que nunca pensé poder preparar.
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">A</div>
+                            <div class="author-info">
+                                <h4>Ana Rodríguez</h4>
+                                <p>Estudiante de Repostería</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta">
+            <div class="container">
+                <h2>Comienza Hoy</h2>
+                <p>Elige el curso que impulse tu crecimiento profesional</p>
+                <a href="#productos" class="btn btn-white">
+                    <i class="fas fa-rocket"></i> Explorar Cursos
                 </a>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Sección de Productos -->
-    <section class="products" id="productos">
-        <div class="container">
-            <div class="section-header">
-                <h2>Cursos Destacados</h2>
-                <p>Selección de programas especializados para tu crecimiento</p>
-            </div>
-            <div class="products-grid">
-                <!-- Curso de Inglés -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Curso de Inglés DigitalPremium">
-                        <div class="product-badge">POPULAR</div>
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-column">
+                        <h3>DigitalPremium</h3>
+                        <p style="color: #9ca3af; font-size: 14px; line-height: 1.6;">Cursos especializados para desarrollo profesional.</p>
                     </div>
-                    <div class="product-content">
-                        <h3>Inglés Fácil</h3>
-                        <p>Domina el inglés conversacional y comunícate con confianza en poco tiempo.</p>
-                        
-                        <h4>Lo que lograrás</h4>
-                        <ul class="benefits-list">
-                            <li><i class="fas fa-check"></i> Estructuras gramaticales esenciales</li>
-                            <li><i class="fas fa-check"></i> Conversaciones fluidas en inglés</li>
-                            <li><i class="fas fa-check"></i> Pronunciación correcta</li>
-                            <li><i class="fas fa-check"></i> Comprensión auditiva avanzada</li>
+                    
+                    <div class="footer-column">
+                        <h3>Cursos</h3>
+                        <ul>
+                            <li><a href="#productos">Inglés Fácil</a></li>
+                            <li><a href="#productos">Photoshop</a></li>
+                            <li><a href="#productos">Combo Recetas</a></li>
                         </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>Legal</h3>
+                        <ul>
+                            <li><a href="#">Términos</a></li>
+                            <li><a href="#">Privacidad</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="copyright">
+                    <p>&copy; 2024 DigitalPremium. Todos los derechos reservados.</p>
+                    <p style="margin-top: 10px; font-size: 12px;">*Los resultados pueden variar según el esfuerzo y dedicación.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Página Detallada - Inglés -->
+    <div id="ingles-detail" class="product-detail-page">
+        <header>
+            <div class="container">
+                <div class="header-content">
+                    <a href="#" class="logo" onclick="showMainPage()">
+                        <i class="fas fa-gem"></i>
+                        <span>DigitalPremium</span>
+                    </a>
+                    <nav>
+                        <ul>
+                            <li><a href="#" onclick="showMainPage()">Volver a Cursos</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <section class="product-detail">
+            <div class="container">
+                <a href="#" class="back-link" onclick="showMainPage()">
+                    <i class="fas fa-arrow-left"></i> Volver a todos los cursos
+                </a>
+                
+                <div class="product-detail-content">
+                    <div class="product-detail-image">
+                        <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Curso de Inglés DigitalPremium">
+                    </div>
+                    
+                    <div class="product-detail-info">
+                        <h1>Inglés Fácil</h1>
+                        <p class="description">Domina el inglés conversacional y comunícate con confianza en situaciones reales. Nuestro método probado te llevará desde lo básico hasta un nivel intermedio en solo 3 meses.</p>
                         
-                        <div class="pricing">
+                        <div class="product-features">
+                            <h2>Lo que lograrás con este curso</h2>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Estructuras gramaticales esenciales aplicadas a conversaciones reales</li>
+                                <li><i class="fas fa-check"></i> Vocabulario práctico para situaciones cotidianas y profesionales</li>
+                                <li><i class="fas fa-check"></i> Técnicas de pronunciación para sonar más natural</li>
+                                <li><i class="fas fa-check"></i> Comprensión auditiva para entender diferentes acentos</li>
+                                <li><i class="fas fa-check"></i> Estrategias para mantener conversaciones fluidas</li>
+                                <li><i class="fas fa-check"></i> Acceso a comunidad exclusiva de estudiantes</li>
+                                <li><i class="fas fa-check"></i> Certificado de finalización al terminar el curso</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="product-detail-pricing">
                             <div class="price-old">$3,000 MXN</div>
                             <div class="price-new">$1,121 MXN</div>
                             <div class="price-save">Ahorras $1,879 MXN</div>
-                            <a href="https://go.hotmart.com/M103189078G?ap=d46c" class="btn">
-                                <i class="fas fa-shopping-cart"></i> Comprar Ahora
+                            
+                            <a href="https://go.hotmart.com/M103189078G?ap=d46c" class="btn-giant">
+                                <i class="fas fa-shopping-cart"></i> COMPRAR AHORA
                             </a>
-                            <p style="margin-top: 10px; font-size: 12px; color: var(--text-light);">Pago único • Acceso permanente</p>
+                            <p style="margin-top: 10px; font-size: 14px; color: var(--text-light);">Pago único • Acceso permanente • Garantía de 7 días</p>
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
+    </div>
 
-                <!-- Curso de Photoshop -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://visualbitstudio.com/wp-content/uploads/2021/06/Img-2-s.jpg" alt="Curso Photoshop para Estampadores">
-                        <div class="product-badge">NUEVO</div>
-                    </div>
-                    <div class="product-content">
-                        <h3>Photoshop para Estampadores</h3>
-                        <p>Aprende diseño gráfico especializado para personalización y estampado.</p>
-                        
-                        <h4>Lo que lograrás</h4>
-                        <ul class="benefits-list">
-                            <li><i class="fas fa-check"></i> Diseños profesionales para estampado</li>
-                            <li><i class="fas fa-check"></i> Herramientas esenciales de Photoshop</li>
-                            <li><i class="fas fa-check"></i> Trabajo con capas y selecciones</li>
-                            <li><i class="fas fa-check"></i> Preparación de archivos para impresión</li>
+    <!-- Página Detallada - Photoshop -->
+    <div id="photoshop-detail" class="product-detail-page">
+        <header>
+            <div class="container">
+                <div class="header-content">
+                    <a href="#" class="logo" onclick="showMainPage()">
+                        <i class="fas fa-gem"></i>
+                        <span>DigitalPremium</span>
+                    </a>
+                    <nav>
+                        <ul>
+                            <li><a href="#" onclick="showMainPage()">Volver a Cursos</a></li>
                         </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <section class="product-detail">
+            <div class="container">
+                <a href="#" class="back-link" onclick="showMainPage()">
+                    <i class="fas fa-arrow-left"></i> Volver a todos los cursos
+                </a>
+                
+                <div class="product-detail-content">
+                    <div class="product-detail-image">
+                        <img src="https://visualbitstudio.com/wp-content/uploads/2021/06/Img-2-s.jpg" alt="Curso Photoshop para Estampadores">
+                    </div>
+                    
+                    <div class="product-detail-info">
+                        <h1>Photoshop para Estampadores</h1>
+                        <p class="description">Aprende diseño gráfico especializado para personalización y estampado. Crea diseños profesionales sin necesidad de conocimientos previos.</p>
                         
-                        <div class="pricing">
+                        <div class="product-features">
+                            <h2>Lo que incluye este curso</h2>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Fundamentos de Photoshop para diseño de estampados</li>
+                                <li><i class="fas fa-check"></i> Creación de patrones y diseños repetitivos</li>
+                                <li><i class="fas fa-check"></i> Técnicas de colorización y ajustes para impresión</li>
+                                <li><i class="fas fa-check"></i> Preparación de archivos para diferentes métodos de estampado</li>
+                                <li><i class="fas fa-check"></i> Diseño para playeras, tazas, textiles y más</li>
+                                <li><i class="fas fa-check"></i> Biblioteca de recursos y brushes exclusivos</li>
+                                <li><i class="fas fa-check"></i> Asesoría personalizada para tus proyectos</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="product-detail-pricing">
                             <div class="price-old">$2,500 MXN</div>
                             <div class="price-new">$785 MXN</div>
                             <div class="price-save">Ahorras $1,715 MXN</div>
-                            <!-- CORRECCIÓN: Cambiado de btn-secondary a btn -->
-                            <a href="https://go.hotmart.com/V103200284I?ap=3a33" class="btn">
-                                <i class="fas fa-shopping-cart"></i> Comprar Ahora
+                            
+                            <a href="https://go.hotmart.com/V103200284I?ap=3a33" class="btn-giant">
+                                <i class="fas fa-shopping-cart"></i> COMPRAR AHORA
                             </a>
-                            <p style="margin-top: 10px; font-size: 12px; color: var(--text-light);">Pago único • Acceso permanente</p>
+                            <p style="margin-top: 10px; font-size: 14px; color: var(--text-light);">Pago único • Acceso permanente • Garantía de 7 días</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
 
-    <!-- Testimonios -->
-    <section class="testimonials" id="testimonios">
-        <div class="container">
-            <div class="section-header">
-                <h2>Experiencias Reales</h2>
-                <p>Lo que dicen nuestros estudiantes</p>
-            </div>
-            <div class="testimonial-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        El curso de inglés superó mis expectativas. En solo 2 meses ya puedo mantener conversaciones fluidas. Método muy práctico.
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">M</div>
-                        <div class="author-info">
-                            <h4>María González</h4>
-                            <p>Estudiante de Inglés</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        Transformó mi negocio de estampado. Ahora creo mis propios diseños y atiendo pedidos personalizados sin depender de diseñadores.
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">C</div>
-                        <div class="author-info">
-                            <h4>Carlos Mendoza</h4>
-                            <p>Emprendedor</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        Las lecciones son muy entretenidas y prácticas. Aprendí bastante en poco tiempo. Lo recomiendo totalmente.
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">A</div>
-                        <div class="author-info">
-                            <h4>Ana Rodríguez</h4>
-                            <p>Estudiante</p>
-                        </div>
-                    </div>
+    <!-- Página Detallada - Recetas -->
+    <div id="recetas-detail" class="product-detail-page">
+        <header>
+            <div class="container">
+                <div class="header-content">
+                    <a href="#" class="logo" onclick="showMainPage()">
+                        <i class="fas fa-gem"></i>
+                        <span>DigitalPremium</span>
+                    </a>
+                    <nav>
+                        <ul>
+                            <li><a href="#" onclick="showMainPage()">Volver a Cursos</a></li>
+                        </ul>
+                    </nav>
                 </div>
             </div>
-        </div>
-    </section>
+        </header>
 
-    <!-- CTA Section -->
-    <section class="cta">
-        <div class="container">
-            <h2>Comienza Hoy</h2>
-            <p>Elige el curso que impulse tu crecimiento profesional</p>
-            <a href="#productos" class="btn btn-white">
-                <i class="fas fa-rocket"></i> Explorar Cursos
-            </a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>DigitalPremium</h3>
-                    <p style="color: #9ca3af; font-size: 14px; line-height: 1.6;">Cursos especializados para desarrollo profesional.</p>
-                </div>
+        <section class="product-detail">
+            <div class="container">
+                <a href="#" class="back-link" onclick="showMainPage()">
+                    <i class="fas fa-arrow-left"></i> Volver a todos los cursos
+                </a>
                 
-                <div class="footer-column">
-                    <h3>Cursos</h3>
-                    <ul>
-                        <li><a href="#productos">Inglés Fácil</a></li>
-                        <li><a href="#productos">Photoshop</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Legal</h3>
-                    <ul>
-                        <li><a href="#">Términos</a></li>
-                        <li><a href="#">Privacidad</a></li>
-                    </ul>
+                <div class="product-detail-content">
+                    <div class="product-detail-image">
+                        <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1364&q=80" alt="Combo Ideal + 230 Recetas de Postre">
+                    </div>
+                    
+                    <div class="product-detail-info">
+                        <h1>Combo Ideal + 230 Recetas de Postre</h1>
+                        <p class="description">Descubre el combo perfecto para aprender repostería con más de 230 recetas para toda ocasión. Desde postres clásicos hasta creaciones innovadoras.</p>
+                        
+                        <div class="product-features">
+                            <h2>Todo lo que obtendrás</h2>
+                            <ul>
+                                <li><i class="fas fa-check"></i> 230 recetas de postres variados con instrucciones paso a paso</li>
+                                <li><i class="fas fa-check"></i> Técnicas profesionales de repostería y decoración</li>
+                                <li><i class="fas fa-check"></i> Recetas organizadas por ocasión: cumpleaños, bodas, eventos especiales</li>
+                                <li><i class="fas fa-check"></i> Guía completa de ingredientes y utensilios esenciales</li>
+                                <li><i class="fas fa-check"></i> Tips para emprendedores en repostería</li>
+                                <li><i class="fas fa-check"></i> Videos tutoriales de técnicas avanzadas</li>
+                                <li><i class="fas fa-check"></i> Ebook con secretos de repostería profesional</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="product-detail-pricing">
+                            <div class="price-old">$4,500 MXN</div>
+                            <div class="price-new">$336.40 MXN</div>
+                            <div class="price-save">Ahorras $4,163.60 MXN</div>
+                            
+                            <a href="https://go.hotmart.com/F103210913F?ap=9022" class="btn-giant">
+                                <i class="fas fa-shopping-cart"></i> COMPRAR AHORA
+                            </a>
+                            <p style="margin-top: 10px; font-size: 14px; color: var(--text-light);">Pago único • Acceso permanente • Garantía de 7 días</p>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </section>
+    </div>
+
+    <script>
+        // Función para mostrar la página principal
+        function showMainPage() {
+            document.getElementById('main-page').style.display = 'block';
+            document.getElementById('ingles-detail').style.display = 'none';
+            document.getElementById('photoshop-detail').style.display = 'none';
+            document.getElementById('recetas-detail').style.display = 'none';
+            window.scrollTo(0, 0);
+        }
+        
+        // Función para mostrar la página detallada del producto
+        function showProductDetail(product) {
+            document.getElementById('main-page').style.display = 'none';
             
-            <div class="copyright">
-                <p>&copy; 2024 DigitalPremium. Todos los derechos reservados.</p>
-                <p style="margin-top: 10px; font-size: 12px;">*Los resultados pueden variar según el esfuerzo y dedicación.</p>
-            </div>
-        </div>
-    </footer>
+            if (product === 'ingles') {
+                document.getElementById('ingles-detail').style.display = 'block';
+            } else if (product === 'photoshop') {
+                document.getElementById('photoshop-detail').style.display = 'block';
+            } else if (product === 'recetas') {
+                document.getElementById('recetas-detail').style.display = 'block';
+            }
+            
+            window.scrollTo(0, 0);
+        }
+        
+        // Mostrar la página principal al cargar
+        document.addEventListener('DOMContentLoaded', function() {
+            showMainPage();
+        });
+    </script>
 </body>
 </html>
